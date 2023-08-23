@@ -1,9 +1,12 @@
+import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <>
       <header className="head">
         <div className="container">
-          <img src="/src/images/logo-vinted.png" alt="" />
+          <Link to="/">
+            <img src="/src/images/logo-vinted.png" alt="" />
+          </Link>
           <input
             id="search"
             type="text"

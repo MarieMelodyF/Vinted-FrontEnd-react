@@ -8,34 +8,16 @@ import Offers from "./pages/Offers";
 
 function App() {
   const [data, setData] = useState();
-  const [isLoading, setIsLoading] = useState(true);
 
   return (
     <Router>
       <Header />
       <Routes>
-        <Route
-          path="/"
-          element={
-            <Home
-              data={data}
-              setData={setData}
-              isLoading={isLoading}
-              setIsLoading={setIsLoading}
-            />
-          }
-        />
+        <Route path="/" element={<Home data={data} setData={setData} />} />
 
         <Route
           path="/offers/:id"
-          element={
-            <Offers
-              data={data}
-              setData={setData}
-              isLoading={isLoading}
-              setIsLoading={setIsLoading}
-            />
-          }
+          element={<Offers data={data} setData={setData} />}
         />
       </Routes>
     </Router>
