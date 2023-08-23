@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Offers = ({ data, setData, isLoading, setIsLoading }) => {
   useEffect(() => {
@@ -23,15 +24,11 @@ const Offers = ({ data, setData, isLoading, setIsLoading }) => {
     <span>En cours de chargement... </span>
   ) : (
     <main>
-      {/* {data.offers.map((offerId, id) => {
-        console.log(offerId._id);
-        return (
-          <div>
-            {" "}
-            <p>{offerId._id}</p>{" "}
-          </div>
-        );
-      })} */}
+      <Link to="/">lien page home</Link>
+
+      <div>
+        <p>{offerList._id.product_name}</p>
+      </div>
     </main>
   );
 };

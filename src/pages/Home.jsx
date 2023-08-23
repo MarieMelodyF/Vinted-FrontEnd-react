@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Hero from "../components/Hero";
 
 const Home = ({ data, setData, isLoading, setIsLoading }) => {
   useEffect(() => {
@@ -24,25 +25,25 @@ const Home = ({ data, setData, isLoading, setIsLoading }) => {
     <span>En cours de chargement... </span>
   ) : (
     <main>
+      <Hero />
+
       <div className="card-list">
-        {data.offers.map((offerlist, id) => {
-          // console.log(offerlist);
+        {data.offers.map((offerList, id) => {
+          // console.log(offerList);
           return (
-            <div
-              className="card-container"
-              key={id}
-              //   onClick={<Link to={`/offers/${id}`}></Link>}
-            >
-              <div className="card-username">
-                <p>{offerlist.owner.account.username}</p>
+            <Link to={`/offers/${offerList._id}`}>
+              <div className="card-container" key={id}>
+                <div className="card-username">
+                  <p>{offerList.owner.account.username}</p>
+                </div>
+                <div>
+                  <img src={offerList.product_image.secure_url} alt="" />
+                </div>
+                <div className="card-price">
+                  <span>{offerList.product_price} €</span>
+                </div>
               </div>
-              <div>
-                <img src={offerlist.product_image.secure_url} alt="" />
-              </div>
-              <div className="card-price">
-                <span>{offerlist.product_price} €</span>
-              </div>
-            </div>
+            </Link>
           );
         })}
       </div>

@@ -15,12 +15,6 @@ const Header = () => {
           <button>Vends tes articles</button>
         </div>
       </header>
-      <main className="inner">
-        <div className="inner-text">
-          <p>Prêts à faire du tri dans vos placards ?</p>
-          <button>Commencez à vendre</button>
-        </div>
-      </main>
     </>
   );
 };

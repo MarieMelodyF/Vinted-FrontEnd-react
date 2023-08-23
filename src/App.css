@@ -58,8 +58,8 @@ main img {
   object-fit: cover;
 }
 .card-list {
-  margin: 10px 300px;
-  border: 1px solid red;
+  margin: 20px 300px;
+  /* border: 1px solid red; */
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
