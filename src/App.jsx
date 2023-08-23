@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import axios from "axios";
 import "./App.css";
-import Header from "./components/Headers";
+import Header from "./components/Header";
 import Home from "./pages/Home";
-import Offers from "./pages/Offers";
+import Offer from "./pages/Offer";
 
 function App() {
   const [data, setData] = useState();
@@ -17,7 +17,7 @@ function App() {
 
         <Route
           path="/offers/:id"
-          element={<Offers data={data} setData={setData} />}
+          element={<Offer data={data} setData={setData} />}
         />
       </Routes>
     </Router>
