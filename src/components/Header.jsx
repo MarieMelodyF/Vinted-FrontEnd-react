@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
-import Signup from "../pages/Signup";
 
-const Header = () => {
+const Header = (token, setToken) => {
   return (
     <>
       <header className="head">
@@ -16,11 +15,26 @@ const Header = () => {
             placeholder="search..."
           />
 
-          <Link to="/signup">
-            <button> S'inscre</button>
-          </Link>
+          {token ? (
+            <>
+              <button
+                onClick={() => {
+                  setToken(null);
+                  Cookies.remove("token");
+                }}
+              >
+                Se déconnecter
+              </button>
+            </>
+          ) : (
+            <>
+              <Link to="/signup">
+                <button> S'inscrire</button>
+              </Link>
 
-          <button>Se conencter</button>
+              <button>Se connecter</button>
+            </>
+          )}
           <button>Vends tes articles</button>
         </div>
       </header>
