@@ -138,3 +138,11 @@ div .offer-Price {
   font-size: 25px;
   margin-bottom: 15px;
 }
+
+main .offer-Details .avatar {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  object-fit: contain;
+  /* border: 1px solid red; */
+}

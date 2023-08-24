@@ -41,13 +41,11 @@ const Offers = ({ data, setData }) => {
             <span className="offer-Price">{data.product_price} €</span>
             <p>{data.product_name}</p>
             <p>{data.product_description} </p>
-            {/* <p>{data.owner.account.username}</p> */}
-
+            <p>{data.owner.user}</p>
             {data.product_details.map(
-              ({ MARQUE, ÉTAT, COULEUR, EMPLACEMENT }) => {
-                // console.log(details);
+              ({ MARQUE, ÉTAT, COULEUR, EMPLACEMENT, id }) => {
                 return (
-                  <div>
+                  <div key={id}>
                     <p>{MARQUE}</p>
                     <p>{ÉTAT}</p>
                     <p>{COULEUR}</p>
@@ -56,6 +54,11 @@ const Offers = ({ data, setData }) => {
                 );
               }
             )}
+            <img
+              className="avatar"
+              src={data.owner.account.avatar.secure_url}
+              alt=""
+            />
           </div>
         </div>
       </main>
