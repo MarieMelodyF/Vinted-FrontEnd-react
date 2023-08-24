@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
+import Signup from "../pages/Signup";
+
 const Header = () => {
   return (
     <>
       <header className="head">
-        <div className="container">
+        <div className="headerContainer">
           <Link to="/">
             <img src="/src/images/logo-vinted.png" alt="" />
           </Link>
@@ -13,7 +15,11 @@ const Header = () => {
             className="input"
             placeholder="search..."
           />
-          <button> S'inscre</button>
+
+          <Link to="/signup">
+            <button> S'inscre</button>
+          </Link>
+
           <button>Se conencter</button>
           <button>Vends tes articles</button>
         </div>

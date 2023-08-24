@@ -5,6 +5,7 @@ import "./App.css";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
+import Signup from "./pages/Signup";
 
 function App() {
   const [data, setData] = useState();
@@ -13,12 +14,9 @@ function App() {
     <Router>
       <Header />
       <Routes>
-        <Route path="/" element={<Home data={data} setData={setData} />} />
-
-        <Route
-          path="/offers/:id"
-          element={<Offer data={data} setData={setData} />}
-        />
+        <Route path="/" element={<Home />} />
+        <Route path="/offers/:id" element={<Offer />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
     </Router>
   );

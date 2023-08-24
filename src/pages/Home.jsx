@@ -3,8 +3,10 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Hero from "../components/Hero";
 
-const Home = ({ data, setData }) => {
+const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [data, setData] = useState();
+
   useEffect(() => {
     const fetchData = async () => {
       try {

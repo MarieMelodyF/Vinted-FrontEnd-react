@@ -3,8 +3,10 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
-const Offers = ({ data, setData }) => {
+const Offers = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [data, setData] = useState();
+
   const { id } = useParams();
 
   useEffect(() => {

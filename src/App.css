@@ -9,17 +9,26 @@ body {
 .head {
   display: flex;
   justify-content: center;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   background-color: white;
 }
 .container {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  /* border: 1px solid rgb(21, 255, 0); */
+  background-color: white;
+}
+.headerContainer {
+  display: flex;
+  width: 1280px;
   justify-content: space-between;
   align-items: center;
-  width: 1280px;
   margin: 10px 0;
   background-color: white;
 }
+
 header img {
   height: 40px;
   width: 100px;
@@ -145,4 +154,51 @@ main .offer-Details .avatar {
   border-radius: 50%;
   object-fit: contain;
   /* border: 1px solid red; */
+}
+
+/* -------------------- */
+/* -----PAGE SIGNUP---- */
+/* -------------------- */
+
+.signup {
+  height: 500px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 100px 0;
+  background-color: white;
+  border: 1px solid rgb(43, 0, 255);
+}
+input {
+  margin-top: 20px;
+  height: 30px;
+  width: 200px;
+}
+
+.politique {
+  display: flex;
+  flex-direction: column;
+  color: grey;
+  font-size: 10px;
+  margin-top: 20px;
+}
+
+.checkbox span {
+  color: black;
+  font-size: 20px;
+}
+form button {
+  background-color: #017580;
+  color: white;
+  height: 30px;
+  width: 200px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
