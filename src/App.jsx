@@ -1,28 +1,39 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+} from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
 import Signup from "./pages/Signup";
-
-const [token, setToken] = useState(null);
-
-token = response.data.token;
-//   console.log("token ==>", token);
-Cookies.set("token", token, { expires: 7 });
-setToken(token);
+import Cookies from "js-cookie";
 
 function App() {
-  const [data, setData] = useState();
+  const [token, setToken] = useState(Cookies.get("token"));
+
+  // import du cookies dans app
+  useEffect(() => {
+    if (token) {
+      Cookies.set("token", token, { expires: 7 });
+    } else {
+      Cookies.remove("token");
+    }
+  }, [token]);
 
   return (
     <Router>
-      <Header />
+      <Header token={token} setToken={setToken} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/offers/:id" element={<Offer />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route
+          path="/signup"
+          element={<Signup token={token} setToken={setToken} />}
+        />
       </Routes>
     </Router>
   );

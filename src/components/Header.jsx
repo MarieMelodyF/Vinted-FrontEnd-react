@@ -1,6 +1,8 @@
+import Cookies from "js-cookie";
+
 import { Link } from "react-router-dom";
 
-const Header = (token, setToken) => {
+const Header = ({ token, setToken }) => {
   return (
     <>
       <header className="head">
@@ -14,13 +16,14 @@ const Header = (token, setToken) => {
             className="input"
             placeholder="search..."
           />
-
+          {/* Si le cookies est existant alors faire disparaitre les boutons s'inscre et se connecter */}
+          {/* Afficher le bouton se deconnecter. Au clic sur "se deconnecter. Faire apparaitre à nouveau 
+           les boutons supprimés" */}
           {token ? (
             <>
               <button
                 onClick={() => {
-                  setToken(null);
-                  Cookies.remove("token");
+                  setToken("");
                 }}
               >
                 Se déconnecter

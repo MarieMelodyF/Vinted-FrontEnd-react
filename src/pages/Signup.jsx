@@ -5,13 +5,10 @@ import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
 const Signup = ({ setToken }) => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [data, setData] = useState({});
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [newsletter, setNewsletter] = useState(false);
-  const [showResults, setShowResults] = useState(false);
 
   const navigate = useNavigate();
 
@@ -52,15 +49,14 @@ const Signup = ({ setToken }) => {
         }
       );
 
-      setShowResults(true);
       alert("Votre inscription a été effectuée !");
       console.log("response.data =>", response.data);
       console.log("Submit ==> ", data);
 
       const token = response.data.token;
       //   console.log("token ==>", token);
-      Cookies.set("token", token, { expires: 7 });
       setToken(token);
+      navigate("/");
     } catch (error) {
       console.log(error.message);
     }
@@ -115,9 +111,7 @@ const Signup = ({ setToken }) => {
             </p>
           </div>
           <br />
-          <button type="submit" onClick={() => navigate("/")}>
-            S'inscrire
-          </button>
+          <button type="submit">S'inscrire</button>
         </form>
       </div>
     </main>

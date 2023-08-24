@@ -31,11 +31,11 @@ const Home = () => {
       <Hero />
 
       <div className="card-list">
-        {data.offers.map((offerList, id) => {
+        {data.offers.map((offerList, index) => {
           // console.log(offerList);
           return (
-            <Link to={`/offers/${offerList._id}`}>
-              <div className="card-container" key={id}>
+            <Link to={`/offers/${offerList._id}`} key={index}>
+              <div className="card-container">
                 <div className="card-username">
                   <p>{offerList.owner.account.username}</p>
                 </div>
