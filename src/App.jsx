@@ -19,6 +19,9 @@ import Publish from "./pages/Publish.jsx";
 function App() {
   const [token, setToken] = useState(Cookies.get("token"));
   const [search, setSearch] = useState("");
+  const [priceMax, setPriceMax] = useState("");
+  const [priceMini, setPriceMini] = useState("");
+  const [sort, setSort] = useState("");
 
   // import du cookies dans app
   useEffect(() => {
@@ -36,11 +39,28 @@ function App() {
         setToken={setToken}
         search={search}
         setSearch={setSearch}
+        priceMin={priceMini}
+        setPriceMini={setPriceMini}
+        priceMax={priceMax}
+        setPriceMax={setPriceMax}
+        sort={sort}
+        setSort={setSort}
       />
       <Routes>
         <Route
           path="/"
-          element={<Home search={search} setSearch={setSearch} />}
+          element={
+            <Home
+              search={search}
+              setSearch={setSearch}
+              priceMini={priceMini}
+              setPriceMin={setPriceMini}
+              priceMax={priceMax}
+              setPriceMax={setPriceMax}
+              sort={sort}
+              setSort={setSort}
+            />
+          }
         />
         <Route path="/offers/:id" element={<Offer />} />
         <Route

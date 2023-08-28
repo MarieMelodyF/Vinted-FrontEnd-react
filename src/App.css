@@ -8,32 +8,6 @@ body {
 /* -------------------- */
 /* -------------------- */
 
-.head {
-  display: flex;
-  justify-content: center;
-  /* border: 1px solid red; */
-  background-color: white;
-}
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 10px 0;
-  /* border: 1px solid rgb(21, 255, 0); */
-  background-color: white;
-}
-.headerContainer {
-  display: flex;
-  width: 1280px;
-  justify-content: space-between;
-  align-items: center;
-  margin: 10px 0;
-  background-color: white;
-}
-.headerContainer input {
-  margin: 10px 0;
-}
-
 header img {
   height: 40px;
   width: 100px;
@@ -51,13 +25,55 @@ header button {
 }
 
 header input {
-  width: 500px;
+  width: 200px;
   border-radius: 3px;
 }
 
 .signOut {
   background-color: rgb(228, 114, 114);
   color: white;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  padding: 10px 0;
+  width: 1280px;
+  /* border: 1px solid red; */
+}
+
+.header-button {
+  display: flex;
+  gap: 30px;
+}
+.search-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.search-input {
+  background-color: #f5f6f7;
+  border: none;
+  border-radius: 5px;
+  font-family: Maison Neue;
+  font-size: 16px;
+  height: 37px;
+  outline: none;
+  padding-left: 40px;
+  width: 400px;
+}
+
+.sortPrice {
+  display: flex;
+  width: 270px;
+  margin-top: 10px;
+  /* border: 1px solid blue; */
+}
+.sortPrice-check {
+  margin-left: -50px;
 }
 
 /* -------------------- */
@@ -94,6 +110,7 @@ header input {
   height: 40px;
   width: 150px;
   border: 1px solid #0ab1ba;
+  border-radius: 6px;
   font-weight: normal;
 }
 /* -------------------- */
@@ -104,6 +121,7 @@ header input {
 
 main {
   background-color: white;
+  /* width: 1280px; */
 }
 main img {
   height: 360px;
@@ -111,7 +129,9 @@ main img {
   object-fit: cover;
 }
 .card-list {
-  margin: 20px 300px;
+  margin: 0 auto;
+  margin-top: 50px;
+  width: 1280px;
   /* border: 1px solid red; */
   display: flex;
   flex-wrap: wrap;

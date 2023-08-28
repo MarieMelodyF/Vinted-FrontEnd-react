@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Hero from "../components/Hero";
 
-const Home = ({ search }) => {
+const Home = ({ search, priceMini, priceMax, sort }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState();
 
@@ -11,9 +11,9 @@ const Home = ({ search }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://lereacteur-vinted-api.herokuapp.com/offers?title=${search}`
+          `https://lereacteur-vinted-api.herokuapp.com/offers?title=${search}&priceMin=${priceMini}&priceMax=${priceMax}&sort=${sort}`
         );
-        // console.log("response.data =>", response.data);
+        console.log("response.data =>", response.data);
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -22,12 +22,12 @@ const Home = ({ search }) => {
     };
 
     fetchData();
-  }, [search]);
+  }, [search, sort, priceMini, priceMax]);
 
   return isLoading ? (
     <span>En cours de chargement... </span>
   ) : (
-    <main>
+    <main className="container">
       <Hero />
 
       <div className="card-list">
