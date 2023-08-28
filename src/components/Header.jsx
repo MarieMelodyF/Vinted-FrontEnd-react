@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import Slider from "./Slider";
+
 const Header = ({ token, setToken, search, setSearch, sort, setSort }) => {
   return (
     <>
@@ -34,6 +36,8 @@ const Header = ({ token, setToken, search, setSearch, sort, setSort }) => {
                   console.log("log", setSort);
                 }}
               />
+              {/* slide price */}
+              <Slider />
             </div>
           </div>
 

@@ -68,14 +68,36 @@ header input {
 
 .sortPrice {
   display: flex;
-  width: 270px;
+  align-items: center;
+  width: 500px;
   margin-top: 10px;
+  /* border: 1px solid blue; */
+}
+.sortPrice p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   /* border: 1px solid blue; */
 }
 .sortPrice-check {
   margin-left: -50px;
+  height: 20px;
 }
 
+div > .range-slider {
+  margin-top: 10px;
+  touch-action: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  width: 200px;
+  height: 8px;
+  background: #ddd;
+  border-radius: 4px;
+}
 /* -------------------- */
 /* -------------------- */
 /* -------HERO--------- */
