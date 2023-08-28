@@ -1,9 +1,11 @@
 body {
-  background-color: #f2f2f2;
+  background-color: white;
 }
 
 /* -------------------- */
+/* -------------------- */
 /* --------HEADER------ */
+/* -------------------- */
 /* -------------------- */
 
 .head {
@@ -40,25 +42,28 @@ header img {
 header button {
   height: 40px;
   width: 150px;
+  font-size: 12px;
+  border-radius: 6px;
+  border: none;
+  background-color: white;
+  border: 1px solid #75c1c8;
+  color: #017580;
 }
 
 header input {
-  width: 200px;
+  width: 500px;
   border-radius: 3px;
 }
 
 .signOut {
-  background-color: #75c1c8;
+  background-color: rgb(228, 114, 114);
   color: white;
-}
-button {
-  font-weight: bold;
-  border-radius: 6px;
-  border: none;
 }
 
 /* -------------------- */
+/* -------------------- */
 /* -------HERO--------- */
+/* -------------------- */
 /* -------------------- */
 
 .inner {
@@ -92,7 +97,9 @@ button {
   font-weight: normal;
 }
 /* -------------------- */
+/* -------------------- */
 /* -------MAIN--------- */
+/* -------------------- */
 /* -------------------- */
 
 main {
@@ -125,7 +132,9 @@ main img {
   border-radius: 50%;
 }
 /* -------------------- */
+/* -------------------- */
 /* -----PAGE OFFERS---- */
+/* -------------------- */
 /* -------------------- */
 
 .button-back {
@@ -136,7 +145,7 @@ main img {
   border-radius: 3px;
 }
 .offer-Details {
-  height: 300px;
+  height: 400px;
   width: 400px;
   background-color: white;
   /* border: 1px solid red; */
@@ -182,61 +191,107 @@ main .offer-Details .avatar {
   object-fit: contain;
   /* border: 1px solid red; */
 }
-
+/* -------------------- */
 /* -------------------- */
 /* -----PAGE SIGNUP---- */
 /* -------------------- */
+/* -------------------- */
 
-.signup {
-  height: 500px;
-  width: 500px;
+.signup-container,
+.signup-form {
   display: flex;
   flex-direction: column;
+}
+
+.signup h2 {
+  font-size: 25px;
+  text-align: center;
+  margin: 40px 0;
+}
+
+.signup-container {
   justify-content: center;
-  align-items: center;
-  margin: 100px 0;
-  background-color: white;
-  border: 1px solid rgb(43, 0, 255);
-}
-input {
-  margin-top: 20px;
-  height: 30px;
-  width: 200px;
+  margin-top: 30px;
+  text-align: center;
 }
 
-.politique {
-  display: flex;
-  flex-direction: column;
-  color: grey;
-  font-size: 10px;
-  margin-top: 20px;
+.signup-form {
+  margin: auto;
+  width: 275px;
 }
-
-.checkbox span {
-  color: black;
+.signup-form input[type="checkbox"] {
+  margin-right: 20px;
+  height: 25px;
+}
+input[type="checkbox"] {
+  cursor: pointer;
+}
+.checkbox-container span {
+  color: #666;
   font-size: 20px;
 }
-form button {
-  background-color: #017580;
-  color: white;
-  height: 30px;
-  width: 200px;
+.checkbox-container p {
+  margin-top: 15px;
+  color: #666;
+}
+/* -------------------- */
+/* -------------------- */
+/* --------LOGIN------- */
+/* -------------------- */
+/* -------------------- */
+
+.signup-container h2 {
+  margin-top: 20px;
+  font-size: 25px;
+  margin: 40px 0;
 }
 
-form {
+.signup-container,
+.signup-form {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+}
+
+.signup-container {
+  justify-content: center;
+  margin-top: 30px;
+  background-color: white;
+  text-align: center;
+}
+.signup-form > input {
+  border: none;
+  border-bottom: 1px solid #fcced3;
+  height: 35px;
+  margin-bottom: 20px;
+  background-color: white;
+  font-family: Maison Neue;
+  font-size: 18px;
+  width: 300px;
+}
+
+.form-validation {
+  height: 30px;
+  width: 300px;
+  font-family: Maison Neue;
+}
+
+.subscribe {
+  color: #017580;
+  font-size: 15px;
+  text-decoration: none;
 }
 
 /* -------------------- */
+/* -------------------- */
 /* -------PUBLISH------ */
+/* -------------------- */
 /* -------------------- */
 
 .publish-container h1 {
   display: flex;
   justify-content: center;
-  font-size: 30px;
-  margin-top: 20px;
+  font-size: 25px;
+  margin: 40px 0;
 }
 
 form {

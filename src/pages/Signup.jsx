@@ -63,8 +63,8 @@ const Signup = ({ setToken }) => {
   return (
     <main className="container">
       <div className="signup">
-        <h1>S'inscrire</h1>
-        <form id="contactForm" onSubmit={handleSubmit}>
+        <h2>S'inscrire</h2>
+        <form className="signup-form" id="contactForm" onSubmit={handleSubmit}>
           <input
             onChange={handleUsernameChange}
             type="text"
@@ -90,26 +90,29 @@ const Signup = ({ setToken }) => {
             placeholder="Votre mot de passe"
           />
           <br />
-          <div className="checkbox">
-            <input
-              onChange={handleNewslettersChange}
-              className="check-input"
-              type="checkbox"
-              value={newsletter}
-              name="newsletter"
-            />
-            <span>S'incre à notre newsletters</span>
-          </div>
-          <div className="politique">
+          <div className="checkbox-container">
+            <div>
+              {" "}
+              <input
+                onChange={handleNewslettersChange}
+                className="check-input"
+                type="checkbox"
+                value={newsletter}
+                name="newsletter"
+              />
+              <span>S'incre à notre newsletters</span>
+            </div>
             <p>
-              en m'inscrivant je confirme avoir lu et accepté les Termes &
+              En m'inscrivant je confirme avoir lu et accepté les Termes &
               Conditions <br />
               et Politique de Confidentialité de Vinted. Je confirme avoir au
               moins 18 ans.
             </p>
           </div>
           <br />
-          <button type="submit">S'inscrire</button>
+          <button className="form-validation" type="submit">
+            S'inscrire
+          </button>
         </form>
       </div>
     </main>

@@ -9,8 +9,9 @@ const Login = ({ token, setToken }) => {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <div className="signup-container">
       <form
+        className="signup-form"
         onSubmit={async (event) => {
           event.preventDefault();
           try {
@@ -33,7 +34,7 @@ const Login = ({ token, setToken }) => {
           }
         }}
       >
-        <h1>Se connecter</h1>
+        <h2>Se connecter</h2>
         <input
           type="email"
           placeholder="Email"
@@ -50,9 +51,15 @@ const Login = ({ token, setToken }) => {
             setPassword(event.target.value);
           }}
         />
-        <input type="submit" value="Se connecter" />
+        <button className="form-validation" type="submit" value="Se connecter">
+          Se connecter
+        </button>
+        <Link to="/signup">
+          <span className="subscribe">
+            Pas encore de compte ? Inscris-toi !
+          </span>
+        </Link>
       </form>
-      <Link to="/signup">Pas encore de compte ? Inscris-toi !</Link>
     </div>
   );
 };

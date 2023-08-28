@@ -36,7 +36,7 @@ const Header = ({ token, setToken, search, setSearch }) => {
               </Link>
 
               <Link to="/login">
-                <button>Se connecter</button>
+                <button className="disconnect">Se connecter</button>
               </Link>
             </>
           )}
