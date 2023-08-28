@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Header = ({ token, setToken }) => {
+const Header = ({ token, setToken, search, setSearch }) => {
   return (
     <>
       <header className="head">
@@ -8,15 +8,16 @@ const Header = ({ token, setToken }) => {
           <Link to="/">
             <img src="/src/images/logo-vinted.png" alt="" />
           </Link>
+          {/* barre de recherche */}
           <input
-            id="search"
             type="text"
-            className="input"
-            placeholder="search..."
+            value={search}
+            placeholder="search a article..."
+            onChange={(event) => {
+              setSearch(event.target.value);
+            }}
           />
-          {/* Si le cookies est existant alors faire disparaitre les boutons s'inscre et se connecter */}
-          {/* Afficher le bouton se deconnecter. Au clic sur "se deconnecter. Faire apparaitre à nouveau 
-           les boutons supprimés" */}
+
           {token ? (
             <>
               <button
@@ -33,7 +34,9 @@ const Header = ({ token, setToken }) => {
                 <button> S'inscrire</button>
               </Link>
 
-              <button>Se connecter</button>
+              <Link to="/login">
+                <button>Se connecter</button>
+              </Link>
             </>
           )}
           <button>Vends tes articles</button>
