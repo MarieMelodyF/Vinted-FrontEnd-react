@@ -17,6 +17,7 @@ const Offers = () => {
         );
         // console.log("response.data =>", response.data);
         setData(response.data);
+        // console.log("respon.data", response.data);
         setIsLoading(false);
       } catch (error) {
         console.log(error.message);
@@ -44,23 +45,25 @@ const Offers = () => {
             <p>{data.product_name}</p>
             <p>{data.product_description} </p>
             <p>{data.owner.user}</p>
-            {data.product_details.map(
-              ({ MARQUE, ÉTAT, COULEUR, EMPLACEMENT, id }) => {
-                return (
-                  <div key={id}>
-                    <p>{MARQUE}</p>
-                    <p>{ÉTAT}</p>
-                    <p>{COULEUR}</p>
-                    <p>{EMPLACEMENT}</p>
-                  </div>
-                );
-              }
+            {data.product_details.map((detail, index) => {
+              // console.log(detail);
+              const keys = Object.keys(detail);
+              // console.log(keys);
+              const key = keys[0];
+              // console.log(key);
+              return (
+                <p key={index}>
+                  {key} : {detail[key]}
+                </p>
+              );
+            })}
+            {data.owner.account.avatar && (
+              <img
+                className="avatar"
+                src={data.owner.account.avatar.secure_url}
+                alt={data.owner.account.username}
+              />
             )}
-            <img
-              className="avatar"
-              src={data.owner.account.avatar.secure_url}
-              alt=""
-            />
           </div>
         </div>
       </main>

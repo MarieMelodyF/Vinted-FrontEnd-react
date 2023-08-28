@@ -21,6 +21,7 @@ const Header = ({ token, setToken, search, setSearch }) => {
           {token ? (
             <>
               <button
+                className="signOut"
                 onClick={() => {
                   setToken("");
                 }}
@@ -39,7 +40,10 @@ const Header = ({ token, setToken, search, setSearch }) => {
               </Link>
             </>
           )}
-          <button>Vends tes articles</button>
+
+          <Link to="/publish">
+            <button>Vends tes articles</button>
+          </Link>
         </div>
       </header>
     </>

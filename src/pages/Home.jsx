@@ -13,7 +13,7 @@ const Home = ({ search }) => {
         const response = await axios.get(
           `https://lereacteur-vinted-api.herokuapp.com/offers?title=${search}`
         );
-        console.log("response.data =>", response.data);
+        // console.log("response.data =>", response.data);
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -38,6 +38,13 @@ const Home = ({ search }) => {
               <div className="card-container">
                 <div className="card-username">
                   <p>{offerList.owner.account.username}</p>
+                  {offerList.owner.account.avatar && (
+                    <img
+                      className="avatar"
+                      src={offerList.owner.account.avatar.secure_url}
+                      alt={offerList.owner.account.username}
+                    />
+                  )}
                 </div>
                 <div>
                   <img src={offerList.product_image.secure_url} alt="" />

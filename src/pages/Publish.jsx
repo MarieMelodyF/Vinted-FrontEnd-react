@@ -18,9 +18,9 @@ const Publish = ({ token, setToken }) => {
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
-    event.defaultPrevented();
+    event.preventDefault();
     try {
-      const formData = new formData();
+      const formData = new FormData();
       formData.append("title", title);
       formData.append("description", description);
       formData.append("brand", brand);
@@ -30,10 +30,9 @@ const Publish = ({ token, setToken }) => {
       formData.append("price", price);
       formData.append("picture", picture);
       formData.append("imgCloudinary", imgCloudinary);
-
+      console.log("test");
       const response = await axios.post(
-        "http://localhost:3000/publish",
-
+        "https://lereacteur-vinted-api.herokuapp.com/offer/publish",
         formData,
         {
           headers: {
@@ -43,98 +42,162 @@ const Publish = ({ token, setToken }) => {
         }
       );
 
-      setImgCloudinary(response.data.secure_url);
-      console.log("log response.data", response.data);
+      setImgCloudinary(response.data.product_image.secure_url);
+      //   console.log("log response.data", response.data);
     } catch (error) {
+      console.log("aie");
       console.log(error.response);
     }
   };
 
   return (
-    <div>
+    <div className="publish-container">
+      <h1>Vends ton article</h1>
       <form onSubmit={handleSubmit}>
         {/* file */}
-        <input
-          type="file"
-          onChange={(event) => {
-            // console.log(event);
-            setPicture(event.target.files[0]);
-          }}
-        />
-        {/* titre */}
-        <input
-          type="text"
-          placeholder="Title"
-          value={title}
-          onChange={(event) => {
-            setTitle(event.target.value);
-          }}
-        />
-        {/* description */}
-        <input
-          type="text"
-          placeholder="Describe your article"
-          value={description}
-          onChange={(event) => {
-            setDescription(event.target.value);
-          }}
-        />
-        {/* Marque */}
-        <input
-          type="text"
-          placeholder="Brand"
-          value={brand}
-          onChange={(event) => {
-            setBrand(event.target.value);
-          }}
-        />
-        {/* taille */}
-        <input
-          type="text"
-          placeholder="Size"
-          value={size}
-          onChange={(event) => {
-            setSize(event.target.value);
-          }}
-        />
-        {/* Couleur */}
-        <input
-          type="text"
-          placeholder="Color"
-          value={color}
-          onChange={(event) => {
-            setColor(event.target.value);
-          }}
-        />
-        {/* Etat */}
-        <input
-          type="text"
-          placeholder="État"
-          value={etat}
-          onChange={(event) => {
-            setEtat(event.target.value);
-          }}
-        />
-        {/* Lieu */}
-        <input
-          type="text"
-          placeholder="City"
-          value={city}
-          onChange={(event) => {
-            setCity(event.target.value);
-          }}
-        />
-        <input
-          type="text"
-          placeholder="Price"
-          value={price}
-          onChange={(event) => {
-            setPrice(event.target.value);
-          }}
-        />
-        <Link to="/">
-          <input type="submit" placeholder="Register" />
-        </Link>
+        <div className="file-select">
+          <label
+            for="file"
+            className="label-file"
+            onChange={(event) => {
+              console.log("log event", event);
+              setPicture(event.target.files[0]);
+            }}
+          >
+            <div className="text-label">
+              <span> + </span>
+              <span>Ajoute une photo</span>
+            </div>
+          </label>
+
+          <input
+            id="file"
+            type="file"
+            className="input-file"
+            onChange={(event) => {
+              console.log("log event", event);
+              setPicture(event.target.files[0]);
+            }}
+          />
+        </div>
+
+        <section className="text-input-section">
+          <div className="text-input">
+            {/* titre */}
+            <h4>Title</h4>
+            <input
+              type="text"
+              placeholder="Chemise verte"
+              value={title}
+              onChange={(event) => {
+                setTitle(event.target.value);
+              }}
+            />
+          </div>
+          <div className="text-input">
+            {/* description */}
+            <h4>Descrit ton article</h4>
+
+            <textarea
+              name="description"
+              rows="5"
+              placeholder="ex: porté quelquefois, taille correctement"
+              value={description}
+              onChange={(event) => {
+                setDescription(event.target.value);
+              }}
+            ></textarea>
+          </div>
+        </section>
+
+        <section className="text-input-section">
+          <div className="text-input">
+            {/* Marque */}
+            <h4>Marque</h4>
+
+            <input
+              type="text"
+              placeholder="ex : Zara"
+              value={brand}
+              onChange={(event) => {
+                setBrand(event.target.value);
+              }}
+            />
+          </div>
+
+          <div className="text-input">
+            <h4>Taille</h4>
+            {/* taille */}
+            <input
+              type="text"
+              placeholder="ex: L/36/42"
+              value={size}
+              onChange={(event) => {
+                setSize(event.target.value);
+              }}
+            />
+          </div>
+          <div className="text-input">
+            <h4>Couleur</h4>
+            {/* Couleur */}
+            <input
+              type="text"
+              placeholder="ex: Fushia, Rayé, ..."
+              value={color}
+              onChange={(event) => {
+                setColor(event.target.value);
+              }}
+            />
+          </div>
+          <div className="text-input">
+            <h4>État</h4>
+            {/* Etat */}
+            <input
+              type="text"
+              placeholder="Ex: bon état, neuf, ..."
+              value={etat}
+              onChange={(event) => {
+                setEtat(event.target.value);
+              }}
+            />
+          </div>
+          <div className="text-input">
+            <h4>Lieu</h4>
+            {/* Lieu */}
+            <input
+              type="text"
+              placeholder="Ex: Paris"
+              value={city}
+              onChange={(event) => {
+                setCity(event.target.value);
+              }}
+            />
+          </div>
+        </section>
+        <section className="text-input-section">
+          <div className="text-input">
+            <h4>Prix</h4>
+            {/* price */}
+            <input
+              type="text"
+              placeholder="Price"
+              value={price}
+              onChange={(event) => {
+                setPrice(event.target.value);
+              }}
+            />
+          </div>
+          <div></div>
+        </section>
+        <div className="form-button-div">
+          <Link to="/">
+            <input
+              type="submit"
+              className="form-validation"
+              placeholder="Register"
+            />
+          </Link>
+        </div>
       </form>
       {imgCloudinary && <img src={imgCloudinary} alt="" />}
     </div>
