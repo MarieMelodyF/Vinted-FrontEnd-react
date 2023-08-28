@@ -17,7 +17,7 @@ import Login from "./pages/Login";
 
 function App() {
   const [token, setToken] = useState(Cookies.get("token"));
-  const [search, setSearch] = useState();
+  const [search, setSearch] = useState("");
 
   // import du cookies dans app
   useEffect(() => {
@@ -37,7 +37,10 @@ function App() {
         setSearch={setSearch}
       />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={<Home search={search} setSearch={setSearch} />}
+        />
         <Route path="/offers/:id" element={<Offer />} />
         <Route
           path="/signup"

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Hero from "../components/Hero";
 
-const Home = () => {
+const Home = ({ search }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState();
 
@@ -11,9 +11,9 @@ const Home = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://lereacteur-vinted-api.herokuapp.com/offers"
+          `https://lereacteur-vinted-api.herokuapp.com/offers?title=${search}`
         );
-        // console.log("response.data =>", response.data);
+        console.log("response.data =>", response.data);
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -22,7 +22,7 @@ const Home = () => {
     };
 
     fetchData();
-  }, []);
+  }, [search]);
 
   return isLoading ? (
     <span>En cours de chargement... </span>

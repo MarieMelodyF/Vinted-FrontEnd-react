@@ -15,7 +15,7 @@ const Offers = () => {
         const response = await axios.get(
           `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
         );
-        console.log("response.data =>", response.data);
+        // console.log("response.data =>", response.data);
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
