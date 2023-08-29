@@ -5,8 +5,9 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 
 import Cookies from "js-cookie";
-// import des pages
+// import des components
 import Header from "./components/Header";
+// import des pages
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
 import Signup from "./pages/Signup";
@@ -81,7 +82,7 @@ function App() {
         <Route
           path="/payment"
           element={
-            <Publish token={token} setToken={setToken} stripe={stripePromise} />
+            <Payment token={token} setToken={setToken} stripe={stripePromise} />
           }
         />
       </Routes>

@@ -1,50 +1,19 @@
-import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
-import axios from "axios";
-import { useState } from "react";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import CheckOut from "../components/Checkout";
 
-const Payment = ({ token, setToken, username }) => {
-  const [isLoading, setIsLoading] = useState(false); // State pour etat de la requete
-  const [paymentCompleted, setPaymentCompleted] = useState(false); // State etat paiement
+// je me connecte à mon compte stripe en front, en utilisant ma clef publique
+const stripePromise = loadStripe(
+  "pk_test_51IpvphDqQKb3lCIT3UU1fIPnAXyyG57gLns831kNwLVGCFo1a3MtSucuiIwEijgip8fL85zUlKZKTK0a2JAhSWHt00ZWSjTErF"
+);
 
-  const stripe = useStripe(); // Permet la requete vers stripe
-  const elements = useElements(); // Permet la récupétation des données bancaires d'utilisateur
+function App() {
+  // Elements  va devoir englober toute la logique de paiement. Je lui donne en props stripePromise pour lui montrer que je suis bien connecté à mon compte
+  return (
+    <Elements stripe={stripePromise}>
+      <CheckOut />
+    </Elements>
+  );
+}
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      setIsLoading(true);
-      // Récupération du contenu du cardElement
-      const CardElement = elements.getElement(CardElement);
-      // Envoie des infos à strip, pour valider la carte(existante ou non)
-      const stripeReponse = await stripe.createToken(CardElement, {
-        name: { username },
-      });
-      console.log("log stripeResponse", stripeReponse);
-      const stripeToken = stripeToken.token.id;
-      // Requete au back et envoie du stripeToken
-      const response = await axios.post(
-        "https://lereacteur-vinted-api.herokuapp.com/payment",
-        { stripeToken: stripeToken }
-      );
-      console.log("log resp.data", response.data);
-      setIsLoading(false);
-      if (response.data.status === "succeeded");
-      setPaymentCompleted(true);
-    } catch (error) {
-      console.log(error.message);
-    }
-    return (
-      <form onSubmit={handleSubmit}>
-        <h1>Formulaire de paiement 💳 !</h1>
-        <CardElement />
-        {paymentCompleted === true ? (
-          <p>Payement Completed</p>
-        ) : (
-          <input type="submit" disabled={isLoading} />
-        )}
-      </form>
-    );
-  };
-};
-
-export default Payment;
+export default App;
