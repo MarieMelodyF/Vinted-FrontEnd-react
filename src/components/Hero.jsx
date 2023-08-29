@@ -6,7 +6,7 @@ const Hero = ({ token, setToken }) => {
       <main className="inner">
         <div className="inner-text">
           <p>Prêts à faire du tri dans vos placards ?</p>
-          <Link to={token ? "/publish" : "/login"}>
+          <Link to={token ? "/login" : "/publish"}>
             <button className="hero-button">Commencez à vendre</button>
           </Link>
         </div>
