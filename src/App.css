@@ -8,6 +8,9 @@ body {
 /* -------------------- */
 /* -------------------- */
 
+header {
+  background-color: white;
+}
 header img {
   height: 40px;
   width: 100px;
@@ -454,4 +457,57 @@ button {
   color: #017580;
   text-decoration: none;
   margin-left: 20px;
+}
+/* -------------------- */
+/* -------------------- */
+/* -------PAYMENT------ */
+/* -------------------- */
+/* -------------------- */
+
+.payment-container {
+  margin: 0 auto;
+  padding: 36px 20px;
+  width: 600px;
+}
+body {
+  background-color: rgb(245, 242, 242);
+}
+.payment-card {
+  background: white;
+}
+div {
+  display: block;
+}
+
+.title-payment {
+  color: #999;
+  display: block;
+  font-size: 14px;
+  line-height: 18px;
+  padding: 24px 24px 8px;
+}
+
+.payment-card .content {
+  padding: 24px;
+  text-align: justify;
+}
+.payment-infos {
+  background: #fff;
+}
+
+.payment {
+  background: #fff;
+  padding: 30px;
+}
+.payment-bar {
+  /* width: 600px; */
+  text-align: center;
+  margin-top: 30px;
+}
+
+.card-element {
+  /* background-color: #0ab1ba; */
+  margin-bottom: 30px;
+  box-shadow: 2px lightgray;
+  width: 100%;
 }

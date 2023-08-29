@@ -81,9 +81,7 @@ function App() {
 
         <Route
           path="/payment"
-          element={
-            <Payment token={token} setToken={setToken} stripe={stripePromise} />
-          }
+          element={<Payment token={token} setToken={setToken} />}
         />
       </Routes>
     </Router>
