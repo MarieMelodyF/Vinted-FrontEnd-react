@@ -65,17 +65,7 @@ const Offers = (token) => {
               alt={data.owner.account.username}
             />
           )}
-          {/* <div className="button-buy">
-            <Link {token ? "/publish" : "/login"}
-              to="/payment"
-              state={{
-                title: data.product_name,
-                price: data.product_price,
-                description: data.product_details,
-              }}
-            >
-              <button className="buy">Acheter</button>
-            </Link> */}
+
           <div>
             <button
               className="button-buy"
