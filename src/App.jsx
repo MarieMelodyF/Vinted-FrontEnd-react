@@ -22,10 +22,6 @@ function App() {
   const [priceMini, setPriceMini] = useState("");
   const [sort, setSort] = useState("");
 
-  const stripePromise = loadStripe(
-    "pk_test_51NkQkqEr2FUQ2ut6rLjnsYEWE5GHOYrdm234xxxqKbKromb0jxcrqcplb0qgPD1D29fnuYXUqokfypb8MgO50h4800JktAuH16"
-  );
-
   // import du cookies dans app
   useEffect(() => {
     if (token) {

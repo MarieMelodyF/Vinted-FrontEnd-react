@@ -1,20 +1,18 @@
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
-import { Elements } from "@stripe/react-stripe-js";
 import axios from "axios";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-const CheckOut = ({ title, price, name, token }) => {
+const CheckOut = ({ title, price, token }) => {
   const [isLoading, setIsLoading] = useState(false); // State pour etat de la requete
   const [paymentCompleted, setPaymentCompleted] = useState(false); // State etat paiement
-  const navigate = useNavigate();
-
   const stripe = useStripe(); // Permet la requete vers stripe
   const elements = useElements(); // Permet la récupétation des données bancaires d'utilisateur
+
   const fraisCustom = Number(1);
   const deliveryCustom = Number(2);
   const total = fraisCustom + deliveryCustom + price;
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -48,28 +46,28 @@ const CheckOut = ({ title, price, name, token }) => {
             <h1>Résumé de la commande </h1>
           </div>
           <div className="content">
-            <div>
+            <div className="info">
               <span> Commande</span>
               <span>{price} €</span>
             </div>
-            <div>
+            <div className="info">
               <span> Frais de protection acheteur</span>
-              <span>{fraisCustom}</span>
+              <span>{fraisCustom} €</span>
             </div>
-            <div>
+            <div className="info">
               <span>Frais de livraison</span>
               <span>{deliveryCustom} €</span>
             </div>
           </div>
-          <div className="content">
-            <div>
-              <span>Total</span>
-              <span>{total} €</span>
-            </div>
+        </div>
+        <div className="content">
+          <div className="info">
+            <span>Total</span>
+            <span>{total} €</span>
           </div>
         </div>
         <div className="payment-infos">
-          <span>
+          <span className="info">
             Il ne vous reste plus qu'un étape pour vous offrir {title}. Vous
             allez payer {total} € (frais de protection et frais de port inclus).
           </span>

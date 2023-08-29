@@ -8,7 +8,7 @@ const Publish = ({ token, setToken }) => {
   const [brand, setBrand] = useState("");
   const [color, setColor] = useState("");
   const [etat, setEtat] = useState("");
-  const [taille, setTaille] = useState("");
+  const [city, setCity] = useState("");
   const [price, setPrice] = useState("");
   const [size, setSize] = useState("");
   const [picture, setPicture] = useState(); //   state pour image
@@ -24,7 +24,7 @@ const Publish = ({ token, setToken }) => {
       formData.append("brand", brand);
       formData.append("color", color);
       formData.append("etat", etat);
-      formData.append("taille", taille);
+      formData.append("city", city);
       formData.append("price", price);
       formData.append("picture", picture);
       formData.append("imgCloudinary", imgCloudinary);
@@ -53,30 +53,37 @@ const Publish = ({ token, setToken }) => {
       <h1>Vends ton article</h1>
       <form onSubmit={handleSubmit}>
         {/* file */}
-        <div className="file-select">
-          <label
-            htmlfor="file"
-            className="label-file"
-            onChange={(event) => {
-              console.log("log event", event);
-              setPicture(event.target.files[0]);
-            }}
-          >
-            <div className="text-label">
-              <span> + </span>
-              <span>Ajoute une photo</span>
-            </div>
-          </label>
 
-          <input
-            id="file"
-            type="file"
-            className="input-file"
-            onChange={(event) => {
-              console.log("log event", event);
-              setPicture(event.target.files[0]);
-            }}
-          />
+        {/* <label htmlFor="filePicker" className="label-file">
+                  + Ajoute une photo
+                </label>
+                <input
+                  style={{ display: "none" }}
+                  type="file"
+                  className="input-file"
+                  onChange={(event) => {
+                    setPicture(event.target.files[0]);
+                  }}
+                /> */}
+
+        <div className="file-select">
+          <div>
+            <label htmlFor="filePicker" className="files-select">
+              + Ajouter une image
+            </label>
+            <input
+              style={{ display: "none" }}
+              id="filePicker"
+              type="file"
+              onChange={(event) => {
+                setPicture(event.target.files[0]);
+              }}
+            />
+          </div>
+
+          <div className="filePicker">
+            {picture && <img src={URL.createObjectURL(picture)} alt="" />}
+          </div>
         </div>
 
         <section className="text-input-section">
@@ -165,9 +172,9 @@ const Publish = ({ token, setToken }) => {
             <input
               type="text"
               placeholder="Ex: Paris"
-              value={taille}
+              value={city}
               onChange={(event) => {
-                setTaille(event.target.value);
+                setCity(event.target.value);
               }}
             />
           </div>

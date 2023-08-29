@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import Slider from "./Slider";
+import React, { Component } from "react";
+import Switch from "react-switch";
 
 const Header = ({ token, setToken, search, setSearch, sort, setSort }) => {
   return (
@@ -26,10 +28,10 @@ const Header = ({ token, setToken, search, setSearch, sort, setSort }) => {
                 <div className="sortPrice">
                   {/* prix asc/dsc */}
                   <p>trier par prix</p>
+                  {/* <Switch */}
                   <input
                     className="sortPrice-check"
                     type="checkbox"
-                    span="+"
                     onClick={() => {
                       if (sort === "price-desc") {
                         setSort("price-asc");

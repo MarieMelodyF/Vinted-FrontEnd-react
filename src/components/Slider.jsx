@@ -2,21 +2,27 @@ import React, { useState } from "react";
 import RangeSlider from "react-range-slider-input";
 import "react-range-slider-input/dist/style.css";
 
-export default function ({ sort, setSort, priceMini, priceMax }) {
-  const [value, setValue] = useState([sort, setSort]);
+const Slider = (sort) => {
+  const [min, setMin] = useState(0);
+  const [max, setMax] = useState(500);
+  const [value, setValue] = useState("");
 
   return (
     <div>
-      <div className="title">Prix entre :</div>
+      <div className="title">
+        <span> Prix entre :</span>
 
-      <RangeSlider
-        id="range-slider"
-        priceMini={priceMini}
-        priceMax={priceMax}
-        sort={sort}
-        defaultValue={[0, 50]}
-      />
-      {sort && <RangeSlider />}
+        <RangeSlider
+          id="slider"
+          min={0}
+          max={500}
+          value={value}
+          defaultValue={[0, 200]}
+          sort={setValue}
+        />
+      </div>
     </div>
   );
-}
+};
+
+export default Slider;
