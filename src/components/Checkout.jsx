@@ -81,16 +81,15 @@ const CheckOut = ({ title, price, token }) => {
               <div className="buy">
                 <input type="submit" value="Payer" disabled={isLoading} />
               </div>
-
-              <Link to="/">
-                <div>
-                  <button className="backToVinted">Retourner sur Vinted</button>
-                </div>
-              </Link>
             </>
           )}
         </div>
       </form>
+      <Link to="/">
+        <div className="back-button">
+          <button className="backToVinted">Retourner sur Vinted</button>
+        </div>
+      </Link>
     </div>
   );
 };

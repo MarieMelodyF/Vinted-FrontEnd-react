@@ -54,18 +54,6 @@ const Publish = ({ token, setToken }) => {
       <form onSubmit={handleSubmit}>
         {/* file */}
 
-        {/* <label htmlFor="filePicker" className="label-file">
-                  + Ajoute une photo
-                </label>
-                <input
-                  style={{ display: "none" }}
-                  type="file"
-                  className="input-file"
-                  onChange={(event) => {
-                    setPicture(event.target.files[0]);
-                  }}
-                /> */}
-
         <div className="file-select">
           <div>
             <label htmlFor="filePicker" className="files-select">

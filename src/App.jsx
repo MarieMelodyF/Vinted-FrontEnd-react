@@ -61,7 +61,10 @@ function App() {
             />
           }
         />
-        <Route path="/offers/:id" element={<Offer />} />
+        <Route
+          path="/offers/:id"
+          element={<Offer token={token} setToken={setToken} />}
+        />
         <Route
           path="/signup"
           element={<Signup token={token} setToken={setToken} />}
