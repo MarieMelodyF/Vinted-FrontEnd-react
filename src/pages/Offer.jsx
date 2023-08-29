@@ -64,6 +64,11 @@ const Offers = () => {
                 alt={data.owner.account.username}
               />
             )}
+            <div className="button-buy">
+              <Link to="/payment">
+                <button className="buy">Acheter</button>
+              </Link>
+            </div>
           </div>
         </div>
       </main>

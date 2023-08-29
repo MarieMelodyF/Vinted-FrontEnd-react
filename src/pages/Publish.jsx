@@ -1,18 +1,16 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, Navigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 
 const Publish = ({ token, setToken }) => {
-  const [user, setUser] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [brand, setBrand] = useState("");
   const [color, setColor] = useState("");
   const [etat, setEtat] = useState("");
-  const [city, setCity] = useState("");
+  const [taille, setTaille] = useState("");
   const [price, setPrice] = useState("");
   const [size, setSize] = useState("");
-  const [data, setData] = useState();
   const [picture, setPicture] = useState(); //   state pour image
   const [imgCloudinary, setImgCloudinary] = useState(""); //   stage pour image sur cloudinary
   const navigate = useNavigate();
@@ -26,7 +24,7 @@ const Publish = ({ token, setToken }) => {
       formData.append("brand", brand);
       formData.append("color", color);
       formData.append("etat", etat);
-      formData.append("city", city);
+      formData.append("taille", taille);
       formData.append("price", price);
       formData.append("picture", picture);
       formData.append("imgCloudinary", imgCloudinary);
@@ -50,14 +48,14 @@ const Publish = ({ token, setToken }) => {
     }
   };
 
-  return (
+  return token ? (
     <div className="publish-container">
       <h1>Vends ton article</h1>
       <form onSubmit={handleSubmit}>
         {/* file */}
         <div className="file-select">
           <label
-            for="file"
+            htmlfor="file"
             className="label-file"
             onChange={(event) => {
               console.log("log event", event);
@@ -167,9 +165,9 @@ const Publish = ({ token, setToken }) => {
             <input
               type="text"
               placeholder="Ex: Paris"
-              value={city}
+              value={taille}
               onChange={(event) => {
-                setCity(event.target.value);
+                setTaille(event.target.value);
               }}
             />
           </div>
@@ -201,6 +199,8 @@ const Publish = ({ token, setToken }) => {
       </form>
       {imgCloudinary && <img src={imgCloudinary} alt="" />}
     </div>
+  ) : (
+    <Navigate to="/login" />
   );
 };
 

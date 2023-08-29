@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Signup = ({ setToken }) => {
   const [username, setUsername] = useState("");
@@ -104,7 +104,8 @@ const Signup = ({ setToken }) => {
             </div>
             <p>
               En m'inscrivant je confirme avoir lu et accepté les Termes &
-              Conditions <br />
+              Conditions
+              <br />
               et Politique de Confidentialité de Vinted. Je confirme avoir au
               moins 18 ans.
             </p>
@@ -114,6 +115,11 @@ const Signup = ({ setToken }) => {
             S'inscrire
           </button>
         </form>
+        <Link to="/login">
+          <span className="connexion">
+            Tu as déjà un compte ? Connecte-toi !
+          </span>
+        </Link>
       </div>
     </main>
   );

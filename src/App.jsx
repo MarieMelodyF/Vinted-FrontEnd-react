@@ -1,11 +1,8 @@
 import { useState, useEffect } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useNavigate,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 
 import Cookies from "js-cookie";
 // import des pages
@@ -15,6 +12,7 @@ import Offer from "./pages/Offer";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Publish from "./pages/Publish.jsx";
+import Payment from "./pages/Payment";
 
 function App() {
   const [token, setToken] = useState(Cookies.get("token"));
@@ -22,6 +20,10 @@ function App() {
   const [priceMax, setPriceMax] = useState("");
   const [priceMini, setPriceMini] = useState("");
   const [sort, setSort] = useState("");
+
+  const stripePromise = loadStripe(
+    "pk_test_51NkQkqEr2FUQ2ut6rLjnsYEWE5GHOYrdm234xxxqKbKromb0jxcrqcplb0qgPD1D29fnuYXUqokfypb8MgO50h4800JktAuH16"
+  );
 
   // import du cookies dans app
   useEffect(() => {
@@ -74,6 +76,13 @@ function App() {
         <Route
           path="/publish"
           element={<Publish token={token} setToken={setToken} />}
+        />
+
+        <Route
+          path="/payment"
+          element={
+            <Publish token={token} setToken={setToken} stripe={stripePromise} />
+          }
         />
       </Routes>
     </Router>
