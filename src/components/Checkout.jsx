@@ -2,10 +2,13 @@ import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const CheckOut = ({ title, price, name, token }) => {
   const [isLoading, setIsLoading] = useState(false); // State pour etat de la requete
   const [paymentCompleted, setPaymentCompleted] = useState(false); // State etat paiement
+  const navigate = useNavigate();
 
   const stripe = useStripe(); // Permet la requete vers stripe
   const elements = useElements(); // Permet la récupétation des données bancaires d'utilisateur
@@ -17,24 +20,24 @@ const CheckOut = ({ title, price, name, token }) => {
     try {
       setIsLoading(true);
       // Récupération du contenu du cardElement
-      const CardElement = elements.getElement(CardElement);
+      const cardElement = elements.getElement(CardElement);
       // Envoie des infos à strip, pour valider la carte(existante ou non)
-      const stripeReponse = await stripe.createToken(CardElement, {
-        name: { token },
+      const stripeReponse = await stripe.createToken(cardElement, {
+        name: token,
       });
       console.log("log stripeResponse", stripeReponse);
-      const stripeToken = stripeToken.token.id;
+      const stripeToken = stripeReponse.token.id;
       // Requete au back et envoie du stripeToken
       const response = await axios.post(
         "https://lereacteur-vinted-api.herokuapp.com/payment",
-        { stripeToken: stripeToken, title: title, total: total }
+        { token: stripeToken, title: title, amount: total }
       );
       console.log("log resp.data", response.data);
       setIsLoading(false);
       if (response.data.status === "succeeded");
       setPaymentCompleted(true);
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
     }
   };
   return (
@@ -71,13 +74,22 @@ const CheckOut = ({ title, price, name, token }) => {
             allez payer {total} € (frais de protection et frais de port inclus).
           </span>
         </div>
-        <div></div>
         <div className="payment-bar">
           <CardElement className="card-element" />
           {paymentCompleted === true ? (
-            <></>
+            <p>Paiement Effecuté</p>
           ) : (
-            <input type="submit" disabled={isLoading} />
+            <>
+              <div className="buy">
+                <input type="submit" value="Payer" disabled={isLoading} />
+              </div>
+
+              <Link to="/">
+                <div>
+                  <button className="backToVinted">Retourner sur Vinted</button>
+                </div>
+              </Link>
+            </>
           )}
         </div>
       </form>

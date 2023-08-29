@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 
 // je me connecte à mon compte stripe en front, en utilisant ma clef publique
 const stripePromise = loadStripe(
-  "pk_test_51IpvphDqQKb3lCIT3UU1fIPnAXyyG57gLns831kNwLVGCFo1a3MtSucuiIwEijgip8fL85zUlKZKTK0a2JAhSWHt00ZWSjTErF"
+  "pk_test_51HCObyDVswqktOkX6VVcoA7V2sjOJCUB4FBt3EOiAdSz5vWudpWxwcSY8z2feWXBq6lwMgAb5IVZZ1p84ntLq03H00LDVc2RwP"
 );
 const Payment = () => {
   const location = useLocation();

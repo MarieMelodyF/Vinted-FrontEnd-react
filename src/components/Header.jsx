@@ -12,17 +12,6 @@ const Header = ({ token, setToken, search, setSearch, sort, setSort }) => {
 
           {token ? (
             <>
-              <button
-                className="signOut"
-                onClick={() => {
-                  setToken("");
-                }}
-              >
-                Se déconnecter
-              </button>
-            </>
-          ) : (
-            <>
               <div className="search-container">
                 {/* barre de recherche */}
                 <input
@@ -54,6 +43,18 @@ const Header = ({ token, setToken, search, setSearch, sort, setSort }) => {
                   <Slider />
                 </div>
               </div>
+
+              <button
+                className="signOut"
+                onClick={() => {
+                  setToken("");
+                }}
+              >
+                Se déconnecter
+              </button>
+            </>
+          ) : (
+            <>
               <div className="header-button">
                 <Link to="/signup">
                   <button> S'inscrire</button>
