@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Slider from "./Slider";
 import React, { Component } from "react";
 import Switch from "react-switch";
+import logo from "../images/logo-vinted.png";
 
 const Header = ({ token, setToken, search, setSearch, sort, setSort }) => {
   return (
@@ -9,7 +10,7 @@ const Header = ({ token, setToken, search, setSearch, sort, setSort }) => {
       <header>
         <div className="header-container">
           <Link to="/">
-            <img src="/src/images/logo-vinted.png" alt="" />
+            <img src={logo} alt="logo vinted" />
           </Link>
 
           {token ? (
