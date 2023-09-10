@@ -1,8 +1,30 @@
-# React + Vite
+# VINTED PROJECT
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Offers Page & Buy article
 
-Currently, two official plugins are available:
+List of articles to sells
+![Offers](src/images/offers.gif)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Article
+
+View items for sale
+
+![Article](src/images/article.png)
+
+## Sign in
+
+Sign in in to sell an item
+
+![Sign in](<src/images/Sign in.png>)
+
+## Log in
+
+Log in to sell an item
+
+![Sign in](src/images/Login.png)
+
+## Post an offer
+
+Post your offer here
+
+![PostOffer](src/images/PostOffer.gif)
