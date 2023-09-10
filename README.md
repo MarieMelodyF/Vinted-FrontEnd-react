@@ -7,9 +7,8 @@ List of articles to sells
 
 ## Article
 
-View items for sale
-
-![Article](src/images/article.png)
+View of one item to sale
+![article](src/images/article.png)
 
 ## Sign in
 
